@@ -1,0 +1,11 @@
+pandas
+pydantic
+phonenumbers
+email-validator
+rapidfuzz
+duckdb
+faker
+streamlit
+requests
+python-dateutil
+chromadb

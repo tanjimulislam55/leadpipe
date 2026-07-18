@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+data/leadpipe.duckdb
+data/leadpipe.duckdb.wal
+data/chroma/
+data/mappings.json
+data/generated/facebook_leads.jsonl.bak
+.DS_Store
+nohup.out
