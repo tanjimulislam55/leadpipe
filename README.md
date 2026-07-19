@@ -55,6 +55,16 @@ python run_pipeline.py --limit 6000 --batch-size 2000 --pace 2
 
 Watch the dashboard: leads flow → 🔴 drift detected → 🟡 agent re-maps with the failure report in-prompt → 🟢 flow resumes. Zero human touch. (`python inject_drift.py --restore` undoes it.)
 
+## Screenshots
+
+Live dashboard — totals, per-source breakdown, and quality score distribution across 30,000 ingested leads:
+
+![LeadPipe Doctor dashboard overview](assets/dashboard-overview.png)
+
+Self-healing in action — 🔴 drift detected on the facebook source, 🟡 retry with corrected mapping, plus the unified leads table:
+
+![Drift detection, healing events and unified leads table](assets/dashboard-healing.png)
+
 ## Tools — 100% free & open source
 
 | Layer | Tool | Why | License |
