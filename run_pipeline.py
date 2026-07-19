@@ -72,7 +72,10 @@ def main() -> None:
                     help="use hardcoded mappings (plumbing debug mode)")
     ap.add_argument("--pace", type=float, default=0.0,
                     help="seconds to sleep between batches (live-demo pacing)")
+    ap.add_argument("--sources", default=None,
+                    help="comma-separated subset to ingest, e.g. facebook,instagram")
     args = ap.parse_args()
+    only = set(args.sources.split(",")) if args.sources else None
 
     con = db.connect()
     doctor = None if args.no_llm else Doctor(con, MappingStore())
@@ -80,6 +83,8 @@ def main() -> None:
     grand_total = 0
 
     for source_name, filename in SOURCE_FILES.items():
+        if only and source_name not in only:
+            continue
         path = Path(args.data_dir) / filename
         if not path.exists():
             print(f"[skip] {path} not found")
